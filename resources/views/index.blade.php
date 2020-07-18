@@ -7,8 +7,8 @@
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
     <script type="text/javascript" src="../key.js"></script>
-    <script type="text/javascript" src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
     <div class="pure-g">
