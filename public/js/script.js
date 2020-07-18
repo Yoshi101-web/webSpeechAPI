@@ -97,7 +97,7 @@
 $(function () {
   // Peer object
   var peer = new Peer({
-    key: window.__SKYWAY_KEY__,
+    key: "1a7b9e73-5fd9-4601-9662-629e9ff0baba",
     debug: 3
   });
   var localStream;
