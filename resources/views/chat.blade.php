@@ -52,11 +52,22 @@ const username = document.getElementById("username");
 const text = document.getElementById("text");
 const output = document.getElementById("output");
 
+function time() {
+    var date = new Date();
+    var hh = ("0"+date.getHours()).slice(-2);
+    var min = ("0"+date.getMinutes()).slice(-2);
+    var sec = ("0"+date.getSeconds()).slice(-2);
+
+    var time = hh + ":" + min + ":" + sec;
+    return time;
+}
+
 //Msg送信処理
 send.addEventListener('click', function() {
     newPostRef.ref(room).push({
         username: username.value, 
         text: text.value,
+        time: time()
     });
     text.value = "";
 });
