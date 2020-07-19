@@ -42,6 +42,46 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+
+//Msg送信準備
+const newPostRef = firebase.database();
+let room = "room1";
+
+const send = document.getElementById("send");
+const username = document.getElementById("username");
+const text = document.getElementById("text");
+const output = document.getElementById("output");
+
+//Msg送信処理
+send.addEventListener('click', function() {
+    newPostRef.ref(room).push({
+        username: username.value, 
+        text: text.value,
+    });
+    text.value = "";
+});
+
+  //Msg受信処理
+newPostRef.ref(room).on("child_added", function(data) {
+    const v = data.val(); //データ取得
+    const k = data.key;  //ユニークkey取得
+    let str = "";
+
+    str += '<div id="'+ k +'" class="msg_main">'
+    str += '<div class="msg_left">'; 
+    str += '<div class=""><img src="images/icon_person.png" alt="" class="icon '+ v.username +'" width="30"></div>';
+    str += '<div class="msg">';
+    str += '<div class="name">'+ v.username +'</div>';
+    str += '<div class="text">'+ v.text +'</div>';
+    str += '</div>';
+    str += '</div>';
+    str += '<div class="msg_right">';
+    str += '<div class="time">'+ v.time +'</div>';
+    str +='</div>';
+    str +='</div>';
+
+    output.innerHTML += str;
+});
 </script>
 </body>
 </html>
