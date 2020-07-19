@@ -63,6 +63,7 @@
 </style>
 </head>
 <body>
+    <button id="btn">start</button>
     <div> 
         <div>
             <input type="text" id="username">
